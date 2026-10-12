@@ -11,3 +11,15 @@
 **Tests** : Ajout de tests sur les lettres répétées et la priorité des lettres bien placées.
 
 **Pourquoi** : Pour corriger un bug et améliorer la maniere de verifier un mot !
+
+## 2. Simplification de Joueur
+
+**Probleme** : Le joueur faisait manuellement la méthode equals(), alors que celle ci est généré automatiquement avec les records.
+
+**Mofication** :
+ - Transformation de classe en record
+ - Suppression de equals()
+
+**Tests** : Verification de getNom() et equals()
+
+**Pourquoi** : Reduction de code inutile, améliore la lisibilité

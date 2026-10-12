@@ -38,4 +38,12 @@ class TestJoueur {
         Joueur b = new Joueur("NOM");
         assertThat(a.hashCode()).isNotEqualTo(b.hashCode());
     }
+
+    @Test
+    @DisplayName("permet de récupérer le nom du joueur")
+    void recupererNom() {
+        Joueur joueur = new Joueur("Matteo");
+
+        assertThat(joueur.getNom()).isEqualTo("Matteo");
+    }
 }
