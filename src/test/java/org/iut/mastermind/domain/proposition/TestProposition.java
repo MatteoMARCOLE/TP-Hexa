@@ -71,4 +71,30 @@ public class TestProposition {
             assertThat(reponse.lettre(position)).isEqualTo(attendue);
         }
     }
+     @Test
+    @DisplayName("ne compte pas plusieurs fois une lettre du mot secret")
+    void casLettresRepetees() {
+        var mot = new MotSecret("SOLID");
+        var reponse = mot.compareProposition("SSSSS");
+
+        assertResultat(reponse, PLACEE, INCORRECTE, INCORRECTE, INCORRECTE, INCORRECTE);
+    }
+
+    @Test
+    @DisplayName("reconnaît deux occurrences présentes")
+    void casDeuxOccurrences() {
+        var mot = new MotSecret("SLEEP");
+        var reponse = mot.compareProposition("EEEEE");
+
+        assertResultat(reponse, INCORRECTE, INCORRECTE, PLACEE, PLACEE, INCORRECTE);
+    }
+
+    @Test
+    @DisplayName("donne la priorité aux lettres bien placées")
+    void casPrioritePlacement() {
+        var mot = new MotSecret("AB");
+        var reponse = mot.compareProposition("BB");
+
+        assertResultat(reponse, INCORRECTE, PLACEE);
+    }
 }
